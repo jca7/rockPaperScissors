@@ -37,20 +37,36 @@ function playRound(playerSelection, computerSelection) {
     return"Sorry, that's not a valid option"
   }
 }
-
- 
-
-
 // 4) write a function called game() put the previous function in here
+// this function should keep score and reports a winner or loser at the end. 
 function game() {
+
+  
   for (let i = 0; i < 5; i++) { 
+
     let playerSelects = prompt("Pick between rock paper or scissors").toLowerCase();
     const computerSelects = getComputerChoice();
+
+    playRound(playerSelects, computerSelects);
+
     
-    console.log(playRound(playerSelects, computerSelects));
+
   }
 }
 
 game();
 
-// this function should keep score and reports a winner or loser at the end. 
+
+// have to find a way to keep score for both player and computer
+// need to create a container to hold the score for both  
+
+let playerScore = 0;
+let computerScore = 0;
+
+// if player wins, then increment playerScore by 1
+// if computer wins, then increment computerScore by 1
+// if tie, then no one wins 
+// after 5 rounds of the game, announce a winner.
+// the winner should be the greater of playerScore vs. Computer 
+// if playerScore > than computerScore then print out player wins
+// if computerScore > than playerScore then print out computer wins. 

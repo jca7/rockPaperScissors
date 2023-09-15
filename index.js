@@ -16,36 +16,41 @@ function getComputerChoice (){
 function playRound(playerSelection, computerSelection) {
 
   if (playerSelection === "rock" && computerSelection === "rock") {
-    console.log("Tie game");
+    return "Tie game";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    console.log("Computer wins, sorry");
+    return "Computer wins, sorry";
   } else if (playerSelection === "rock" && computerSelection ==="scissors") {
-    console.log("Player wins!");
+    return "Player wins!";
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    console.log("Computer wins, sorry");
+    return "Computer wins, sorry";
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    console.log("Player wins!");
+    return "Player wins!";
   } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-    console.log("Tie game");
+    return "Tie game";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    console.log("Player wins!");
+    return "Player wins!";
   } else if (playerSelection === "paper" && computerSelection === "paper") {
-    console.log("Tie game");
+    return "Tie game";
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    console.log("Computer wins, sorry");
+    return"Computer wins, sorry";
   } else {
-    console.log("Sorry, that's not a valid option")
+    return"Sorry, that's not a valid option"
   }
 }
 
  
-let playerSelection = prompt("Pick between rock paper or scissors").toLowerCase();
-
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-
-
 
 
 // 4) write a function called game() put the previous function in here
+function game() {
+  for (let i = 0; i < 5; i++) { 
+    let playerSelects = prompt("Pick between rock paper or scissors").toLowerCase();
+    const computerSelects = getComputerChoice();
+    
+    console.log(playRound(playerSelects, computerSelects));
+  }
+}
+
+game();
+
 // this function should keep score and reports a winner or loser at the end. 

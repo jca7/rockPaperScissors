@@ -13,30 +13,44 @@ function getComputerChoice (){
 // compare playerSelection vs. computerSelection to see who wins or if there is a tie
 // return a string that declares the winner of the round or tie 
 
-function playRound(playerSelection, computerSelection) {
+// have to find a way to keep score for both player and computer
+// need to create a container to hold the score for both  
 
+let playerScore = 0;
+let computerScore = 0;
+
+function playRound(playerSelection, computerSelection) {
+  
   if (playerSelection === "rock" && computerSelection === "rock") {
     return "Tie game";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
+    computerScore++;
     return "Computer wins, sorry";
   } else if (playerSelection === "rock" && computerSelection ==="scissors") {
+    playerScore++;
     return "Player wins!";
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    computerScore++;
     return "Computer wins, sorry";
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    playerScore++;
     return "Player wins!";
   } else if (playerSelection === "scissors" && computerSelection === "scissors") {
     return "Tie game";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
+    playerScore++;
     return "Player wins!";
   } else if (playerSelection === "paper" && computerSelection === "paper") {
     return "Tie game";
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    return"Computer wins, sorry";
+    computerScore++;
+    return "Computer wins, sorry";
   } else {
     return"Sorry, that's not a valid option"
   }
+
 }
+
 // 4) write a function called game() put the previous function in here
 // this function should keep score and reports a winner or loser at the end. 
 function game() {
@@ -48,20 +62,20 @@ function game() {
     const computerSelects = getComputerChoice();
 
     playRound(playerSelects, computerSelects);
-
-    
-
+  }
+  if (playerScore > computerScore) {
+    console.log("player wins!");
+  } else if (computerScore > playerScore) {
+    console.log("computer wins!");
+  } else if (computerScore === playerScore) {
+    console.log("Tie");
   }
 }
 
 game();
 
 
-// have to find a way to keep score for both player and computer
-// need to create a container to hold the score for both  
 
-let playerScore = 0;
-let computerScore = 0;
 
 // if player wins, then increment playerScore by 1
 // if computer wins, then increment computerScore by 1

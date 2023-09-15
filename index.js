@@ -1,5 +1,5 @@
 // 1) Create an array to store "Rock" , "Paper" and "Scissors"
-
+const options = ["Rock", "Paper", "Scissors"]
 // 2) create a function that randomly generates a number then use that to randomly select an item from the array above
 
 // 3) write a function that takes 2 parameters: playerSelection & computerSelection 

@@ -1,6 +1,6 @@
 function getComputerChoice (){
   const options = ["rock", "paper", "scissors"]
-  let randomNumber = Math.floor(Math.random() * 3);
+  let randomNumber = Math.floor(Math.random() * options.length);
   let choice = options[randomNumber];
   return choice;
 }

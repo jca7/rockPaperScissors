@@ -39,20 +39,20 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) { 
-    let playerSelects = prompt("Pick between rock paper or scissors").toLowerCase();
-    let computerSelects = getComputerChoice();
-    playRound(playerSelects, computerSelects);
-  }
-  if (playerScore > computerScore) {
-    console.log("Player wins the game! By a score of " + playerScore + " to " + computerScore);
-  } else if (computerScore > playerScore) {
-    console.log("Computer wins the game! By a score of " + computerScore + " to " + playerScore);
-  } else if (computerScore === playerScore) {
-    console.log("No one wins this game, we ended up with a tie.");
-  }
-}
+// function game() {
+//   for (let i = 0; i < 5; i++) { 
+//     let playerSelects = prompt("Pick between rock paper or scissors").toLowerCase();
+//     let computerSelects = getComputerChoice();
+//     playRound(playerSelects, computerSelects);
+//   }
+//   if (playerScore > computerScore) {
+//     console.log("Player wins the game! By a score of " + playerScore + " to " + computerScore);
+//   } else if (computerScore > playerScore) {
+//     console.log("Computer wins the game! By a score of " + computerScore + " to " + playerScore);
+//   } else if (computerScore === playerScore) {
+//     console.log("No one wins this game, we ended up with a tie.");
+//   }
+// }
 
 game();
 

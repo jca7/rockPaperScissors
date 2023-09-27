@@ -40,46 +40,30 @@ function playRound(playerSelection, computerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 
-function game() {
-  for (let i = 0; i < 5; i++) { 
-    let playerSelects = prompt("Pick between rock paper or scissors").toLowerCase();
-    let computerSelects = getComputerChoice();
-    playRound(playerSelects, computerSelects);
-  }
-  if (playerScore > computerScore) {
-    console.log("Player wins the game! By a score of " + playerScore + " to " + computerScore);
-  } else if (computerScore > playerScore) {
-    console.log("Computer wins the game! By a score of " + computerScore + " to " + playerScore);
-  } else if (computerScore === playerScore) {
-    console.log("No one wins this game, we ended up with a tie.");
-  }
-}
+// function game() {
+//   for (let i = 0; i < 5; i++) { 
+//     let playerSelects = prompt("Pick between rock paper or scissors").toLowerCase();
+//     let computerSelects = getComputerChoice();
+//     playRound(playerSelects, computerSelects);
+//   }
+//   if (playerScore > computerScore) {
+//     console.log("Player wins the game! By a score of " + playerScore + " to " + computerScore);
+//   } else if (computerScore > playerScore) {
+//     console.log("Computer wins the game! By a score of " + computerScore + " to " + playerScore);
+//   } else if (computerScore === playerScore) {
+//     console.log("No one wins this game, we ended up with a tie.");
+//   }
+// }
 
-game();
+// game();
 
 const buttons = document.querySelectorAll('button');
 
-let playerChoice = []
-for(let i = 0; i < buttons.length; i++) 
-
-console.log(buttons);
-console.log(buttons[0].id);
-
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    if(button.id === 'rock') {
-      console.log("nice you picked rock!")
-      let playerSelects = 'rock'
-      console.log(playerSelects)
-    } else if (button.id === 'paper') {
-      console.log("nice you picked paper!")
-      let playerSelects = 'paper'
-      console.log(playerSelects)
-    } else if (button.id === 'scissors') {
-      console.log("nice you picked scissors!")
-      let playerSelects = 'scissors'
-      console.log(playerSelects)
-    }
+  let computerSelects = getComputerChoice();
+  let playerChoice = button.id;
+  playRound(playerChoice, computerSelects)
   })
 })
 

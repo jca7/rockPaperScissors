@@ -58,27 +58,42 @@ const buttons = document.querySelectorAll('button');
 
     }
 
+    const displayContainer = document.querySelector('#displayContainer');
+    const p = document.createElement('p');
+
 
   function game () { 
     let count = 0 
     for(let i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', function (){
-      count++;
-      if (count >= 5) {
-        console.log('game over')
 
+      count++;
+
+      if (count >= 5) {
 
 
         if (playerScore > computerScore) {
-          console.log("Player wins the game! By a score of " + playerScore + " to " + computerScore);
+          p.textContent = "Player wins the game! By a score of " + playerScore + " to " + computerScore;
+          displayContainer.appendChild(p);
+     
+
         } else if (computerScore > playerScore) {
-          console.log("Computer wins the game! By a score of " + computerScore + " to " + playerScore);
+          p.textContent = "Computer wins the game! By a score of " + computerScore + " to " + playerScore;
+          displayContainer.appendChild(p);
+
+
         } else if (computerScore === playerScore) {
-          console.log("No one wins this game, we ended up with a tie.");
+          p.textContent = "No one wins this game. It's a tie " + computerScore + ":" + playerScore;
+          displayContainer.appendChild(p);
+          
+
         }
+
         playerScore = 0; 
         computerScore = 0; 
         count = 0; 
+        
+
       }
 
       })

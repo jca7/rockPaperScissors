@@ -40,39 +40,54 @@ function playRound(playerSelection, computerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 
-// function game() {
-//   for (let i = 0; i < 5; i++) { 
-//     let playerSelects = prompt("Pick between rock paper or scissors").toLowerCase();
-//     let computerSelects = getComputerChoice();
-//     playRound(playerSelects, computerSelects);
-//   }
-//   if (playerScore > computerScore) {
-//     console.log("Player wins the game! By a score of " + playerScore + " to " + computerScore);
-//   } else if (computerScore > playerScore) {
-//     console.log("Computer wins the game! By a score of " + computerScore + " to " + playerScore);
-//   } else if (computerScore === playerScore) {
-//     console.log("No one wins this game, we ended up with a tie.");
-//   }
-// }
-
-// game();
 
 const buttons = document.querySelectorAll('button');
 
-buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-  let computerSelects = getComputerChoice();
-  let playerChoice = button.id;
-  playRound(playerChoice, computerSelects)
-  })
-})
+
+    for(let i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function (){
 
 
-//GOAL OF PROJECT
+        let playerChoice = this.id;
+        let computerSelects = getComputerChoice();
 
-// allow user to select between rock, paper or scissors with a mouse click
-// once an item is selected, we want to put that selection somewhere in the game that we can use
-// once its in a place where we can use it we then need to compare it with the computer's choice. 
-// that way we can actually play the game again. 
-// After 1 single loop is done, then we ask the user to input a second selection. 
+        playRound(playerChoice, computerSelects);
+        console.log(playerScore);
+        console.log(computerScore);
+      })
+
+    }
+
+
+  function game () { 
+    let count = 0 
+    for(let i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function (){
+      count++;
+      if (count >= 5) {
+        console.log('game over')
+
+
+
+        if (playerScore > computerScore) {
+          console.log("Player wins the game! By a score of " + playerScore + " to " + computerScore);
+        } else if (computerScore > playerScore) {
+          console.log("Computer wins the game! By a score of " + computerScore + " to " + playerScore);
+        } else if (computerScore === playerScore) {
+          console.log("No one wins this game, we ended up with a tie.");
+        }
+        playerScore = 0; 
+        computerScore = 0; 
+        count = 0; 
+      }
+
+      })
+    }
+    
+  }
+
+  game(); 
+
+
+
 

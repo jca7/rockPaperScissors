@@ -12,124 +12,95 @@ const gameStatement = document.createElement('p');
 function playRound(playerSelection, computerSelection) {
   
   if (playerSelection === "rock" && computerSelection === "rock") {
-    gameStatement.textContent = "It's " + playerScore + " to " + computerScore + " Tie Game this round"; 
+    gameStatement.textContent = "You picked rock and the computer picked rock too. Tie this time! It's still player score: " + playerScore + " to computer score: " + computerScore; 
     pContainer.appendChild(gameStatement);
-
   } else if (playerSelection === "rock" && computerSelection === "paper") {
     computerScore++;
-    gameStatement.textContent = "It's " + playerScore + " to " + computerScore + " Computer wins this round"; 
+    gameStatement.textContent = "You picked rock but computer picked paper! Computer wins this time. It's now player score: " + playerScore + " to computer score: " + computerScore; 
     pContainer.appendChild(gameStatement);
-
   } else if (playerSelection === "rock" && computerSelection ==="scissors") {
     playerScore++;
-    gameStatement.textContent = "It's " + playerScore + " to " + computerScore + " Player wins this round"; 
+    gameStatement.textContent = "You picked rock and computer picked scissors! You win this time! It's now player score:" + playerScore + " to computer score: " + computerScore; 
     pContainer.appendChild(gameStatement);
-    console.log("Player wins this round");
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
     computerScore++;
-    gameStatement.textContent = "It's " + playerScore + " to " + computerScore + " Computer wins this round"; 
+    gameStatement.textContent = "You picked scissors but computer picked rock! Computer wins this time. It's now player score: " + playerScore + " to computer score: " + computerScore; 
     pContainer.appendChild(gameStatement);
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     playerScore++;
-    gameStatement.textContent = "It's " + playerScore + " to " + computerScore + " Player wins this round"; 
+    gameStatement.textContent = "You picked scissors and computer picked paper! You wins this time! It's now player score: " + playerScore + " to computer score: " + computerScore;
     pContainer.appendChild(gameStatement);
   } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-    gameStatement.textContent = "It's " + playerScore + " to " + computerScore + " Tie Game this round"; 
+    gameStatement.textContent = "You picked scissors AND computer picked scissors! Tie this time. It's still player score: " + playerScore + " to computer score: " + computerScore;
     pContainer.appendChild(gameStatement);
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     playerScore++;
-    gameStatement.textContent = "It's " + playerScore + " to " + computerScore + " Player wins this round"; 
+    gameStatement.textContent = "You picked paper and computer picked rock! You win this time! It's now player score: " + playerScore + " to computer score: " + computerScore;
     pContainer.appendChild(gameStatement);
-    console.log("Player wins this round");
   } else if (playerSelection === "paper" && computerSelection === "paper") {
-    gameStatement.textContent = "It's " + playerScore + " to " + computerScore + " Tie game this round"; 
+    gameStatement.textContent = "You picked paper AND the computer picked paper too. Tie this time! It's still player score: " + playerScore + " to computer score: " + computerScore;
     pContainer.appendChild(gameStatement);
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
     computerScore++;
-    gameStatement.textContent = "It's " + playerScore + " to " + computerScore + " Computer wins this round"; 
+    gameStatement.textContent = "You picked rock but the computer picked scissors! Computer wins this time! It's now player score: " + playerScore + " to computer score: " + computerScore;
     pContainer.appendChild(gameStatement);
-  } else {
-    return "Sorry, that's not a valid option";
-  }
-
+  } 
   setTimeout(function() {
     gameStatement.textContent = "";
-  }, 3000);
+  }, 4000);
 }
 
 let playerScore = 0;
 let computerScore = 0;
 
-
 const buttons = document.querySelectorAll('button');
-
-
 for(let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', function (){
-
-
     let playerChoice = this.id;
     let computerSelects = getComputerChoice();
-
     playRound(playerChoice, computerSelects);
-    console.log(playerScore);
-    console.log(computerScore);
   })
-
 }
-
 
 function game () { 
   let count = 0 
 
   for(let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function (){
-
-    count++;
-
-    if (count >= 5) {
-
-
-      showWinForAMoment();
-
-      playerScore = 0; 
-      computerScore = 0; 
-      count = 0; 
-      
-
-    }
-
+      count++;
+      if (count >= 5) {
+        showWinForAMoment();
+        playerScore = 0; 
+        computerScore = 0; 
+        count = 0; 
+      }
     })
   }
-  
 }
 
-  game(); 
+game(); 
 
 
+function showWinForAMoment() {
 
-
-  function showWinForAMoment() {
-
-    winStatement.innerText = "This text will disappear in a moment.";
-        if (playerScore > computerScore) {
-        winStatement.innerText = "Player wins the game! By a score of " + playerScore + " to " + computerScore;
-        h1Container.appendChild(winStatement);
-    
-
-      } else if (computerScore > playerScore) {
-        winStatement.innerText = "Computer wins the game! By a score of " + computerScore + " to " + playerScore;
-        h1Container.appendChild(winStatement);
-
-
-      } else if (computerScore === playerScore) {
-        winStatement.innerText = "No one wins this game. It's a tie " + computerScore + ":" + playerScore;
-        h1Container.appendChild(winStatement);
-      }
-
-    // Set a timeout to remove the text after 2 seconds (2000 milliseconds)
-    setTimeout(function() {
-      winStatement.innerText = "";
-    }, 3000);
-  }
+  winStatement.innerText = "This text will disappear in a moment.";
+      if (playerScore > computerScore) {
+      winStatement.innerText = "Player wins the game! By a score of " + playerScore + " to " + computerScore;
+      h1Container.appendChild(winStatement);
   
+
+    } else if (computerScore > playerScore) {
+      winStatement.innerText = "Computer wins the game! By a score of " + computerScore + " to " + playerScore;
+      h1Container.appendChild(winStatement);
+
+
+    } else if (computerScore === playerScore) {
+      winStatement.innerText = "No one wins this game. It's a tie " + computerScore + ":" + playerScore;
+      h1Container.appendChild(winStatement);
+    }
+
+  setTimeout(function() {
+    winStatement.innerText = "";
+  }, 4000);
+}
+
